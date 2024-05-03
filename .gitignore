@@ -21,5 +21,6 @@ staticfiles/
 media/
 logs/
 images/*
+img/
 
 .push.py
