@@ -1,0 +1,327 @@
+{% extends 'home/base.html' %}
+{% load static %}
+
+{% block body %}
+    <main>
+        <!--? slider Area Start-->
+        <section class="slider-area ">
+            <div class="slider-active">
+                <!-- Single Slider -->
+                <div class="single-slider slider-height d-flex align-items-center">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xl-6 col-lg-7 col-md-12">
+                                <div class="hero__caption">
+                                    <h1 data-animation="fadeInLeft" data-delay="0.2s">Learn English<br> online</h1>
+                                    <p data-animation="fadeInLeft" data-delay="0.4s">Master that famously tricky English grammar with easy-to-follow guides.</p>
+                                    <a href="{% url 'home:register' %}" class="btn hero-btn" data-animation="fadeInLeft" data-delay="0.7s">Join for Free</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>          
+                </div>
+            </div>
+        </section>
+        <!-- ? services-area -->
+        <div class="services-area">
+            <div class="container">
+                <div class="row justify-content-sm-center">
+                    <div class="col-lg-4 col-md-6 col-sm-8">
+                        <div class="single-services mb-30">
+                            <div class="features-icon">
+                                <img src="{% static 'home/' %}assets/img/icon/icon1.svg" alt="">
+                            </div>
+                            <div class="features-caption">
+                                <h3>60+ Resources</h3>
+                                <p>The automated process all your website tasks.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-8">
+                        <div class="single-services mb-30">
+                            <div class="features-icon">
+                                <img src="{% static 'home/' %}assets/img/icon/icon2.svg" alt="">
+                            </div>
+                            <div class="features-caption">
+                                <h3>Expert instructors</h3>
+                                <p>The automated process all your website tasks.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-8">
+                        <div class="single-services mb-30">
+                            <div class="features-icon">
+                                <img src="{% static 'home/' %}assets/img/icon/icon3.svg" alt="">
+                            </div>
+                            <div class="features-caption">
+                                <h3>Life time access</h3>
+                                <p>The automated process all your website tasks.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--? About Area-1 Start -->
+        <section class="about-area1 fix pt-10">
+            <div class="support-wrapper align-items-center">
+                <div class="left-content1">
+                    <div class="about-icon">
+                        <img src="{% static 'home/' %}assets/img/icon/about.svg" alt="">
+                    </div>
+                    <!-- section tittle -->
+                    <div class="section-tittle section-tittle2 mb-55">
+                        <div class="front-text">
+                            <h2 class="">Learn new skills online with best tools</h2>
+{#                            <p>The automated process all your website tasks. Discover tools and #}
+{#                                techniques to engage effectively with vulnerable children and young #}
+{#                            people.</p>#}
+                        </div>
+                    </div>
+                    <div class="single-features">
+                        <div class="features-icon">
+                            <img src="{% static 'home/' %}assets/img/icon/right-icon.svg" alt="">
+                        </div>
+                        <div class="features-caption">
+                            <p>Develop fluency with everyday conversation topics.</p>
+                        </div>
+                    </div>
+                    <div class="single-features">
+                        <div class="features-icon">
+                            <img src="{% static 'home/' %}assets/img/icon/right-icon.svg" alt="">
+                        </div>
+                        <div class="features-caption">
+                            <p>Learning Business English for your career pays off - literally!</p>
+                        </div>
+                    </div>
+
+                    <div class="single-features">
+                        <div class="features-icon">
+                            <img src="{% static 'home/' %}assets/img/icon/right-icon.svg" alt="">
+                        </div>
+                        <div class="features-caption">
+                            <p>Learn practical words for everyday use and specialized topics.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="right-content1">
+                    <!-- img -->
+                    <div class="right-img">
+                        <img src="{% static 'home/' %}assets/img/gallery/about.png" alt="">
+
+                        <div class="video-icon" >
+                            <a class="popup-video btn-icon" href="https://www.youtube.com/watch?v=up68UAfH0d0"><i class="fas fa-play"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- About Area End -->
+        <!--? About Area-3 Start -->
+        <section class="about-area3 fix">
+            <div class="support-wrapper align-items-center">
+                <div class="right-content3">
+                    <!-- img -->
+                    <div class="right-img">
+                        <img src="{% static 'home/' %}assets/img/gallery/about3.png" alt="">
+                    </div>
+                </div>
+                <div class="left-content3">
+                    <!-- section tittle -->
+                    <div class="section-tittle section-tittle2 mb-20">
+                        <div class="front-text">
+                            <h2 class="">Learning tips for speaking English</h2>
+                        </div>
+                    </div>
+                    <div class="single-features">
+{#                        <div class="features-icon">#}
+{#                            <img src="{% static 'home/' %}assets/img/icon/right-icon.svg" alt="">#}
+{#                        </div>#}
+                        <div class="features-caption">
+                            <p>There are four ways to learn English: online study, in-classroom study, self-study,
+                                and immersion. For those that want to know how to learn English at home, <strong>New
+                                    York English</strong> offer the best solution. We offer flexibility of class times
+                                that work for you, all from the comfort of your own home. Self-study is another option
+                                for those looking at how to learn English at home. In-classroom study and immersion
+                                take you out of your home. Immersion means you are in a 100% English environment,
+                                possibly in an English-speaking country.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- About Area End -->
+                <!-- Courses area start -->
+        <div class="courses-area section-padding40 fix">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-xl-7 col-lg-8">
+                        <div class="section-tittle text-center mb-55">
+                            <h2>Our Plans</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="courses-actives">
+                    <!-- Single -->
+                    <div class="properties pb-20">
+                        <div class="properties__card">
+                            <div class="properties__img overlay1">
+                                <a href="#"><img src="{% static 'home/' %}assets/img/gallery/featured1.png" alt=""></a>
+                            </div>
+                            <div class="properties__caption">
+                                <h3><a href="#">Beginner Level</a></h3>
+                                <p>The automated process all your website tasks. Discover tools and techniques to engage effectively with vulnerable children and young people.
+
+                                </p>
+                                <div class="properties__footer d-flex justify-content-between align-items-center">
+                                    <div class="restaurant-name">
+                                    </div>
+                                    <div class="price">
+                                        <span>$135</span>
+                                    </div>
+                                </div>
+                                <a href="#" class="border-btn border-btn2">Purchase Plan</a>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- Single -->
+                    <!-- Single -->
+                    <div class="properties pb-20">
+                        <div class="properties__card">
+                            <div class="properties__img overlay1">
+                                <a href="#"><img src="{% static 'home/' %}assets/img/gallery/featured2.png" alt=""></a>
+                            </div>
+                            <div class="properties__caption">
+                                <h3><a href="#">Professional</a></h3>
+                                <p>The automated process all your website tasks. Discover tools and techniques to engage effectively with vulnerable children and young people.
+                                </p>
+                                <div class="properties__footer d-flex justify-content-between align-items-center">
+                                    <div class="restaurant-name">
+                                    </div>
+                                    <div class="price">
+                                        <span>$135</span>
+                                    </div>
+                                </div>
+                                <a href="#" class="border-btn border-btn2">Purchase Plan</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Single -->
+                    <!-- Single -->
+                    <div class="properties pb-20">
+                        <div class="properties__card">
+                            <div class="properties__img overlay1">
+                                <a href="#"><img src="{% static 'home/' %}assets/img/gallery/featured3.png" alt=""></a>
+                            </div>
+                            <div class="properties__caption">
+                                <h3><a href="#">Advanced</a></h3>
+                                <p>The automated process all your website tasks. Discover tools and techniques to engage effectively with vulnerable children and young people.
+
+                                </p>
+                                <div class="properties__footer d-flex justify-content-between align-items-center">
+                                    <div class="restaurant-name">
+                                    </div>
+                                    <div class="price">
+                                        <span>$135</span>
+                                    </div>
+                                </div>
+                                <a href="#" class="border-btn border-btn2">Purchase Plan</a>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- Single -->
+                </div>
+            </div>
+        </div>
+        <!-- Courses area End -->
+
+        <!--? Team -->
+        <section class="team-area section-padding40 fix">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-xl-7 col-lg-8">
+                        <div class="section-tittle text-center mb-55">
+                            <h2>Our Experts</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-active">
+                    <div class="single-cat text-center">
+                        <div class="cat-icon">
+                            <img src="{% static 'home/' %}assets/img/gallery/team1.png" alt="">
+                        </div>
+                        <div class="cat-cap">
+                            <h5><a href="services.html">Mr. Urela</a></h5>
+                            <p>The automated process all your website tasks.</p>
+                        </div>
+                    </div>
+                    <div class="single-cat text-center">
+                        <div class="cat-icon">
+                            <img src="{% static 'home/' %}assets/img/gallery/team2.png" alt="">
+                        </div>
+                        <div class="cat-cap">
+                            <h5><a href="services.html">Mr. Uttom</a></h5>
+                            <p>The automated process all your website tasks.</p>
+                        </div>
+                    </div>
+                    <div class="single-cat text-center">
+                        <div class="cat-icon">
+                            <img src="{% static 'home/' %}assets/img/gallery/team3.png" alt="">
+                        </div>
+                        <div class="cat-cap">
+                            <h5><a href="services.html">Mr. Shakil</a></h5>
+                            <p>The automated process all your website tasks.</p>
+                        </div>
+                    </div>
+                    <div class="single-cat text-center">
+                        <div class="cat-icon">
+                            <img src="{% static 'home/' %}assets/img/gallery/team4.png" alt="">
+                        </div>
+                        <div class="cat-cap">
+                            <h5><a href="services.html">Mr. Arafat</a></h5>
+                            <p>The automated process all your website tasks.</p>
+                        </div>
+                    </div>
+                    <div class="single-cat text-center">
+                        <div class="cat-icon">
+                            <img src="{% static 'home/' %}assets/img/gallery/team3.png" alt="">
+                        </div>
+                        <div class="cat-cap">
+                            <h5><a href="services.html">Mr. saiful</a></h5>
+                            <p>The automated process all your website tasks.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Services End -->
+        <!--? About Area-2 Start -->
+        <section class="about-area2 fix pb-padding">
+            <div class="support-wrapper align-items-center">
+                <div class="right-content2">
+                    <!-- img -->
+                    <div class="right-img">
+                        <img src="{% static 'home/' %}assets/img/gallery/about2.png" alt="">
+                    </div>
+                </div>
+                <div class="left-content2">
+                    <!-- section tittle -->
+                    <div class="section-tittle section-tittle2 mb-20">
+                        <div class="front-text">
+                            <h2 class="">Take the next step
+                                toward your personal
+                                and professional goals
+                            with us.</h2>
+                            <p>The automated process all your website tasks. Discover tools and techniques to engage effectively with vulnerable children and young people.</p>
+                            <a href="{% url 'home:register' %}" class="btn">Join now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- About Area End -->
+    </main>
+{% endblock %}
