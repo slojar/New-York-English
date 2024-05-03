@@ -17,7 +17,6 @@ __pycache__/
 .DS_Store
 *.DS_Store
 # Project image and file folders
-static/
 staticfiles/
 media/
 logs/
