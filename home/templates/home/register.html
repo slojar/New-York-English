@@ -46,26 +46,50 @@
 
 <main class="login-body" data-vide-bg="{% static 'home/' %}assets/img/login-bg.mp4">
     <!-- Login Admin -->
-    <form class="form-default" action="login-bg.mp4" method="POST">
+    <form class="form-default" method="POST" action="/register">
+        {% csrf_token %}
         
         <div class="login-form">
             <!-- logo-login -->
             <div class="logo-login">
                 <a href="index.html"><img src="{% static 'home/' %}assets/img/logo/loder.png" alt=""></a>
             </div>
-            <h2>Registration Here</h2>
+                               <!-- Messages and Notices -->
+               {% if form.errors %}
+                  {% for field in form %}
+                     {% for err in field.errors  %}
+                        <div style="color: red; font-weight: bold; text-align: center;">{{err}}</div>
+                     {% endfor %}
+                  {% endfor %}
+               {% endif %}
 
+               {% if messages %}
+                  {% for msg in messages %}
+
+                     {% if msg.tags == 'success'  %}
+                        <div style="color: green; font-weight: bold; text-align: center;">{{msg}}</div>
+                     {% endif %}
+
+                     {% if msg.tags == 'error'  %}
+                        <div style="color: red; font-weight: bold; text-align: center;">{{msg}}</div>
+                     {% endif %}
+
+                  {% endfor %}
+               {% endif %}
+               <!-- End Messages and Notices -->
+
+            <h2>Registration Here</h2>
             <div class="form-input">
-                <input  type="text" name="name" placeholder="Full name">
+                <input  type="text" name="first_name" placeholder="First Name" value="{{ first_name }}">
             </div>
             <div class="form-input">
-                <input type="email" name="email" placeholder="Email Address">
+                <input  type="text" name="last_name" placeholder="Last Name" value="{{ last_name }}">
             </div>
             <div class="form-input">
-                <input type="password" name="password" placeholder="Password">
+                <input type="email" name="email" placeholder="Email Address" value="{{ email }}">
             </div>
             <div class="form-input">
-                <input type="password" name="password" placeholder="Confirm Password">
+                <input type="password" name="password" placeholder="Password" value="{{ password }}">
             </div>
             <div class="form-input pt-30">
                 <input type="submit" name="submit" value="Registration">

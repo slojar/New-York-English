@@ -10,7 +10,10 @@ urlpatterns = [
     path('contact', contact_view, name='contact'),
     path('courses', courses_view, name='courses'),
     path('login', login_view, name='login'),
+    path('dashboard', dashboard_view, name='dashboard'),
     path('register', register_view, name='register'),
+    path('logout', userlogout, name='logout'),
+
 ]
 
 
