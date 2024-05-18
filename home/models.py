@@ -13,6 +13,7 @@ class UserProfile(models.Model):
 
 class Lesson(models.Model):
     name = models.CharField(max_length=50)
+    description = models.TextField(blank=True, null=True)
     price = models.FloatField()
 
     def __str__(self):
