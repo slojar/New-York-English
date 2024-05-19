@@ -41,36 +41,42 @@
           aria-valuemin="0"
           aria-valuemax="100"
         >
-          <div class="progress-bar" style="width: 25%">{{ lesson.progress }}%</div>
+          <div class="progress-bar" style="width: {{ lesson.progress }}%">{{ lesson.progress }}%</div>
         </div>
       </div>
+          {% for item in user_vocabularies %}
+            <a href="{% url 'home:lesson-detail' item.id %}">
       <div class="border-1 border h-100 px-4" style="border-radius: 10px">
-        <div
-          class="d-flex align-items-center justify-content-between my-4 overflow-hidden"
-        >
-          <div class="custom_flex">
+        <div class="d-flex align-items-center justify-content-between my-4 overflow-hidden">
+            <div class="custom_flex">
             <div>
               <img
-                src="{% static 'home' %}/assets/img/blog/slide_thumb_1.png"
+                src="{{ item.image }}"
                 class="object-fit rounded-circle"
                 style="height: 70px; width: 70px"
               />
             </div>
             <div>
-              <div style="font-size: 14px; font-weight: bold">Hello!</div>
-              <div style="font-size: 12px">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              <div style="font-size: 14px; font-weight: bold; color: black">{{ item.title }}</div>
+              <div style="font-size: 12px; color: black">
+                  {{ item.text }}
               </div>
             </div>
           </div>
-          <div
-            class="bg-danger text-white px-4 py-2"
-            style="border-radius: 20px; font-size: 10px; font-weight: bold"
-          >
-            completed
+            {% if item.status == "completed" %}
+          <div class="bg-success text-white px-4 py-2" style="border-radius: 20px; font-size: 10px; font-weight: bold">
+              {{ item.status }}
           </div>
+            {% else %}
+          <div class="bg-warning text-white px-4 py-2" style="border-radius: 20px; font-size: 10px; font-weight: bold">
+              {{ item.status }}
+          </div>
+            {% endif %}
         </div>
       </div>
+        </a>
+              <br/>
+          {% endfor %}
     </div>
   </div>
 

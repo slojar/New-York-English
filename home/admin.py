@@ -7,5 +7,6 @@ admin.site.register(Lesson)
 admin.site.register(UserLesson)
 admin.site.register(Vocabulary)
 admin.site.register(Transaction)
+admin.site.register(UserVocabulary)
 
 # Register your models here.

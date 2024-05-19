@@ -50,13 +50,14 @@ class Vocabulary(models.Model):
     text = models.TextField()
     image = models.ImageField(upload_to="vocabulary-images", blank=True, null=True)
     audio_file = models.FileField(blank=True, null=True, upload_to="audio-files")
-    video_url = models.TextField(blank=True, null=True)
+    video_file = models.FileField(blank=True, null=True, upload_to="video-files")
 
     def __str__(self):
-        return self.title
+        return f"{self.title}: {self.lesson.name}"
 
 
 class UserVocabulary(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     vocabulary = models.ForeignKey(Vocabulary, on_delete=models.CASCADE)
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default="running")
 

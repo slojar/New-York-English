@@ -125,20 +125,29 @@ def lesson_view(request, pk):
     # profile.total_deposit = all_deposit
     # profile.total_balance = float(current_profit) + float(all_deposit)
     # profile.save()
+    lesson = UserLesson.objects.get(id=pk)
+    user_vocabularies = [{
+        "id": item.id,
+        "title": item.vocabulary.title,
+        "status": item.status,
+        "text": item.vocabulary.text,
+        "image": item.vocabulary.image,
+    } for item in UserVocabulary.objects.filter(vocabulary__lesson=lesson.lesson)]
 
     context = {
         'profile': profile,
-        'lesson': UserLesson.objects.get(id=pk),
+        'lesson': lesson,
+        'user_vocabularies': user_vocabularies
     }
     return render(request, 'home/lesson.html', context)
 
 
-def lesson_detail_view(request):
+def lesson_detail_view(request, pk):
     profile = UserProfile.objects.get(user=request.user)
 
     context = {
         'profile': profile,
-        'transactions': "transactions",
+        'volca': UserVocabulary.objects.get(id=pk, user=request.user),
     }
     return render(request, 'home/lesson-detail.html', context)
 
