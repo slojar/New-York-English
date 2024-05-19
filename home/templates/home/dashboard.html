@@ -1,157 +1,223 @@
-{% extends 'home/base.html' %}
-{% load static %}
-
-{% block body %}
-
-{#    {% include 'home/db-header.html' %}#}
+{% extends 'home/base.html' %} {% load static %} {% block body %}
 <main>
-        <!--? slider Area Start-->
-        <section class="slider-area slider-area2">
-            <div class="slider-active">
-                <!-- Single Slider -->
-                <div class="single-slider slider-height2">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-xl-8 col-lg-11 col-md-12">
-                                <div class="hero__caption hero__caption2">
-                                    <h1 data-animation="bounceIn" data-delay="0.2s">Dashboard</h1>
-                                    <!-- breadcrumb Start-->
-                                    <nav aria-label="breadcrumb">
-                                        <ol class="breadcrumb">
-                                            <li class="breadcrumb-item"><a href="{% url 'home:homepage' %}">Home</a></li>
-                                            <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                                        </ol>
-                                    </nav>
-                                    <!-- breadcrumb End -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+  <!--? slider Area Start-->
+  <section class="slider-area slider-area2">
+    <div class="slider-active">
+      <!-- Single Slider -->
+      <div class="single-slider slider-height2">
+        <div class="container">
+          <div class="row">
+            <div class="col-xl-8 col-lg-11 col-md-12">
+              <div class="hero__caption hero__caption2">
+                <h1 data-animation="bounceIn" data-delay="0.2s">Dashboard</h1>
+                <!-- breadcrumb Start-->
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                      <a href="{% url 'home:homepage' %}">Home</a>
+                    </li>
+                    <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                  </ol>
+                </nav>
+                <!-- breadcrumb End -->
+              </div>
             </div>
-        </section>
-    <div style="margin-top: 10px; margin-bottom: 10px">
-
-    </div>
-        <!-- Courses area start -->
-        <div class="row">
-        <div class="col-md-4" style="margin: auto">
-            <div class="card p-3 mb-2">
-                <div class="d-flex justify-content-between">
-                    <div class="d-flex flex-row align-items-center">
-                        <div class="icon"> <i class="bx bxl-mailchimp"></i> </div>
-                        <div class="ms-2 c-details">
-                            <h6 class="mb-0"> </h6> <span>1 days ago</span>
-                        </div>
-                    </div>
-                    <div class="badge"> <span>Professional</span> </div>
-                </div>
-                <div class="mt-5">
-                    <h3 class="heading">Learning Classes<br>Professional</h3>
-                    <div class="mt-5">
-                        <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                        <br>
-{#                        <div class="mt-3"> <span class="text1">32 Applied <span class="text2">of 50 capacity</span></span> </div>#}
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
-
+      </div>
     </div>
+  </section>
+  <div style="margin-top: 10px; margin-bottom: 10px"></div>
+  <!-- Courses area start -->
+</div>
+  <div class="container my-5 my-5">
     <div class="row">
-        <div class="col-lg-12" style="margin-left: 1rem">
-    <table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-</table>
-                        </div>
+      <div class="col-12 col-md-8">
+        <div class="card">
+          <div class="card-body bg-success rounded white-color font-weight-bold">
+            Completed Courses
+          </div>
+        </div>
+        <div class="pb-4">
+          <div class="row">
+          {% if not completed %}
+              <div class="col-6 col-md-3 my-3">No completed courses </div>
+          {% endif %}
+            {% for course in completed %}
+            <div class="col-6 col-md-3 my-3">
+              <div
+                class="border-0 each_col py-5 bg-info d-flex align-items-center  justify-content-center flex-column overflow-hidden"
+              >
+                <div
+                  class="rounded-circle bg-white d-flex align-items-center justify-content-center"
+                  style="width: 50px; height: 50px"
+                >
+                  <i class="ri-presentation-line"></i>
+                </div>
+                <div class="text_col">{{ course.lesson.name }}</div>
+                <div class="text_col_price">${{ course.lesson.price }}</div>
+              </div>
+            </div>
+              {% endfor %}
+          </div>
+        </div>
+                  <div class="card">
+          <div class="card-body bg-warning rounded white-color font-weight-bold">
+            Active Courses
+          </div>
+        </div>
+        <div class="pb-4">
+          <div class="row">
+            {% if not running %}
+              <div class="col-6 col-md-3 my-3">No active courses </div>
+            {% endif %}
+
+              {% for runcourse in running %}
+            <div class="col-6 col-md-3 my-3">
+              <div class="border-0 each_col py-5 bg-primary d-flex align-items-center justify-content-center flex-column overflow-hidden">
+                <div class="rounded-circle bg-white d-flex align-items-center justify-content-center" style="width: 50px; height: 50px">
+                  <i class="ri-presentation-line"></i>
+                </div>
+                <div class="text_col">{{ runcourse.lesson.name}}</div>
+                <div class="text_col_price"> Progress: {{ runcourse.progress }}%</div>
+              </div>
+            </div>
+              {% endfor %}
+          </div>
+        </div>
+            <div class="card">
+          <div class="card-body bg-info rounded white-color font-weight-bold">
+            Recent Payments
+          </div>
+        </div>
+        <br/>
+        <div
+          class="border-0 bg-white overflow-hidden"
+          style="border-radius: 10px"
+        >
+          <div class="row p-4">
+            <div class="col-lg-12 overflow-hidden">
+              <table class="table">
+              {% if transactions %}
+                <thead style="font-size: 14px">
+                  <tr>
+                    <th scope="col">Date</th>
+                    <th scope="col">TransactionID</th>
+                    <th scope="col">Course Name</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Status</th>
+                  </tr>
+                </thead>
+              {% else %}
+                <div class="col-6 col-md-3 my-3">No recent payments </div>
+                {% endif %}
+                <tbody>
+                {% for trans in transactions %}
+                  <tr style="font-size: 12px">
+                    <td>{{ trans.created_on}}</td>
+                    <td>{{ trans.transaction_id}}</td>
+                    <td>{{ trans.plan.name | capfirst }}</td>
+                    <td>{{ trans.detail }}</td>
+                    <td>${{ trans.plan.price }}</td>
+                    <td>{{ trans.status }}</td>
+                  </tr>
+                {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-4 my-0 my-md-3">
+        <div class="bg-secondary w-full h-100 p-3" style="border-radius: 10px">
+          <div>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque,
+            veniam.
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 
-<style>
+  <style>
     body {
-    background-color: #eee
-}
+      background-color: #eee;
+    }
 
-.card {
-    border: none;
-    border-radius: 10px
-}
+    .card {
+      border: none;
+      border-radius: 10px;
+    }
 
-.c-details span {
-    font-weight: 300;
-    font-size: 13px
-}
+    .c-details span {
+      font-weight: 300;
+      font-size: 13px;
+    }
 
-.icon {
-    width: 50px;
-    height: 50px;
-    background-color: #eee;
-    border-radius: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 39px
-}
+    .icon {
+      width: 50px;
+      height: 50px;
+      background-color: #eee;
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 39px;
+    }
 
-.badge span {
-    background-color: #fffbec;
-    width: 60px;
-    height: 25px;
-    padding-bottom: 3px;
-    border-radius: 5px;
-    display: flex;
-    color: #fed85d;
-    justify-content: center;
-    align-items: center
-}
+    .badge span {
+      background-color: #fffbec;
+      width: 60px;
+      height: 25px;
+      padding-bottom: 3px;
+      border-radius: 5px;
+      display: flex;
+      color: #fed85d;
+      justify-content: center;
+      align-items: center;
+    }
 
-.progress {
-    height: 10px;
-    border-radius: 10px
-}
+    .progress {
+      height: 10px;
+      border-radius: 10px;
+    }
 
-.progress div {
-    background-color: red
-}
+    .progress div {
+      background-color: red;
+    }
 
-.text1 {
-    font-size: 14px;
-    font-weight: 600
-}
+    .text1 {
+      font-size: 14px;
+      font-weight: 600;
+    }
 
-.text2 {
-    color: #a5aec0
-}
-</style>
-            <!-- account end -->
-    </main>
+    .text2 {
+      color: #a5aec0;
+    }
+
+    .each_col {
+      border-radius: 10px;
+      gap: 10px;
+    }
+
+    .each_col > .text_col {
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .text_col_price {
+      font-weight: 900;
+      font-size: 14px;
+    }
+
+    .custom-gap {
+      display: flex;
+      align-items: center;
+      gap: 10px; /* Adjust the gap as needed */
+    }
+  </style>
+  <!-- account end -->
+</main>
 
 {% endblock %}
-

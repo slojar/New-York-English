@@ -1,106 +1,160 @@
 {% load static %}
 
-<!doctype html>
+<!DOCTYPE html>
 <html class="no-js" lang="zxx">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title> App landing</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="manifest" href="site.webmanifest">
-    <link rel="shortcut icon" type="image/x-icon" href="{% static 'home/' %}assets/img/favicon.ico">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>App landing</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="manifest" href="site.webmanifest" />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="{% static 'home/' %}assets/img/favicon.ico"
+    />
 
-	<!-- CSS here -->
-	<link rel="stylesheet" href="{% static 'home/' %}assets/css/bootstrap.min.css">
-	<link rel="stylesheet" href="{% static 'home/' %}assets/css/owl.carousel.min.css">
-	<link rel="stylesheet" href="{% static 'home/' %}assets/css/slicknav.css">
-    <link rel="stylesheet" href="{% static 'home/' %}assets/css/flaticon.css">
-    <link rel="stylesheet" href="{% static 'home/' %}assets/css/progressbar_barfiller.css">
-    <link rel="stylesheet" href="{% static 'home/' %}assets/css/gijgo.css">
-    <link rel="stylesheet" href="{% static 'home/' %}assets/css/animate.min.css">
-    <link rel="stylesheet" href="{% static 'home/' %}assets/css/animated-headline.css">
-	<link rel="stylesheet" href="{% static 'home/' %}assets/css/magnific-popup.css">
-	<link rel="stylesheet" href="{% static 'home/' %}assets/css/fontawesome-all.min.css">
-	<link rel="stylesheet" href="{% static 'home/' %}assets/css/themify-icons.css">
-	<link rel="stylesheet" href="{% static 'home/' %}assets/css/slick.css">
-	<link rel="stylesheet" href="{% static 'home/' %}assets/css/nice-select.css">
-	<link rel="stylesheet" href="{% static 'home/' %}assets/css/style.css">
-</head>
-<body>
+    <!-- CSS here -->
+    <link
+      rel="stylesheet"
+      href="{% static 'home/' %}assets/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'home/' %}assets/css/owl.carousel.min.css"
+    />
+    <link rel="stylesheet" href="{% static 'home/' %}assets/css/slicknav.css" />
+    <link rel="stylesheet" href="{% static 'home/' %}assets/css/flaticon.css" />
+    <link
+      rel="stylesheet"
+      href="{% static 'home/' %}assets/css/progressbar_barfiller.css"
+    />
+    <link rel="stylesheet" href="{% static 'home/' %}assets/css/gijgo.css" />
+    <link
+      rel="stylesheet"
+      href="{% static 'home/' %}assets/css/animate.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'home/' %}assets/css/animated-headline.css"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'home/' %}assets/css/magnific-popup.css"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'home/' %}assets/css/fontawesome-all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'home/' %}assets/css/themify-icons.css"
+    />
+    <link rel="stylesheet" href="{% static 'home/' %}assets/css/slick.css" />
+    <link
+      rel="stylesheet"
+      href="{% static 'home/' %}assets/css/nice-select.css"
+    />
+    <link rel="stylesheet" href="{% static 'home/' %}assets/css/style.css" />
+  </head>
+  <body>
     <!-- ? Preloader Start -->
     <div id="preloader-active">
-        <div class="preloader d-flex align-items-center justify-content-center">
-            <div class="preloader-inner position-relative">
-                <div class="preloader-circle"></div>
-                <div class="preloader-img pere-text">
-                    <img src="{% static 'home/' %}assets/img/logo/loder.png" alt="">
-                </div>
-            </div>
+      <div class="preloader d-flex align-items-center justify-content-center">
+        <div class="preloader-inner position-relative">
+          <div class="preloader-circle"></div>
+          <div class="preloader-img pere-text">
+            <img
+              src="{% static 'home/' %}assets/img/logo/loader-new.png"
+              alt=""
+            />
+          </div>
         </div>
+      </div>
     </div>
     <!-- Preloader Start-->
 
+    <!-- Register -->
 
-<!-- Register -->
-
-<main class="login-body" data-vide-bg="{% static 'home/' %}assets/img/login-bg.mp4">
-    <!-- Login Admin -->
-    <form class="form-default" method="POST" action="/register">
+    <main
+      class="login-body"
+      data-vide-bg="{% static 'home/' %}assets/img/login-bg.mp4"
+    >
+      <!-- Login Admin -->
+      <form class="form-default" method="POST" action="/register">
         {% csrf_token %}
-        
+
         <div class="login-form">
-            <!-- logo-login -->
-            <div class="logo-login">
-                <a href="index.html"><img src="{% static 'home/' %}assets/img/logo/loder.png" alt=""></a>
-            </div>
-                               <!-- Messages and Notices -->
-               {% if form.errors %}
-                  {% for field in form %}
-                     {% for err in field.errors  %}
-                        <div style="color: red; font-weight: bold; text-align: center;">{{err}}</div>
-                     {% endfor %}
-                  {% endfor %}
-               {% endif %}
+          <!-- logo-login -->
+          <div class="logo-login">
+            <a href="index.html"
+              ><img
+                src="{% static 'home/' %}assets/img/logo/loader-new.png"
+                alt=""
+            /></a>
+          </div>
+          <!-- Messages and Notices -->
+          {% if form.errors %} {% for field in form %} {% for err in field.errors %}
+          <div style="color: red; font-weight: bold; text-align: center">
+            {{err}}
+          </div>
+          {% endfor %} {% endfor %} {% endif %} {% if messages %} {% for msg in messages %} {% if msg.tags == 'success' %}
+          <div style="color: green; font-weight: bold; text-align: center">
+            {{msg}}
+          </div>
+          {% endif %} {% if msg.tags == 'error' %}
+          <div style="color: red; font-weight: bold; text-align: center">
+            {{msg}}
+          </div>
+          {% endif %} {% endfor %} {% endif %}
+          <!-- End Messages and Notices -->
 
-               {% if messages %}
-                  {% for msg in messages %}
-
-                     {% if msg.tags == 'success'  %}
-                        <div style="color: green; font-weight: bold; text-align: center;">{{msg}}</div>
-                     {% endif %}
-
-                     {% if msg.tags == 'error'  %}
-                        <div style="color: red; font-weight: bold; text-align: center;">{{msg}}</div>
-                     {% endif %}
-
-                  {% endfor %}
-               {% endif %}
-               <!-- End Messages and Notices -->
-
-            <h2>Registration Here</h2>
-            <div class="form-input">
-                <input  type="text" name="first_name" placeholder="First Name" value="{{ first_name }}">
-            </div>
-            <div class="form-input">
-                <input  type="text" name="last_name" placeholder="Last Name" value="{{ last_name }}">
-            </div>
-            <div class="form-input">
-                <input type="email" name="email" placeholder="Email Address" value="{{ email }}">
-            </div>
-            <div class="form-input">
-                <input type="password" name="password" placeholder="Password" value="{{ password }}">
-            </div>
-            <div class="form-input pt-30">
-                <input type="submit" name="submit" value="Registration">
-            </div>
-            <!-- Forget Password -->
-            <p style="color: white">Already have an account? <a href="{% url 'home:login' %}" class="registration">Login Here</a></p>
+          <h2>Registration Here</h2>
+          <div class="form-input">
+            <input
+              type="text"
+              name="first_name"
+              placeholder="First Name"
+              value="{{ first_name }}"
+            />
+          </div>
+          <div class="form-input">
+            <input
+              type="text"
+              name="last_name"
+              placeholder="Last Name"
+              value="{{ last_name }}"
+            />
+          </div>
+          <div class="form-input">
+            <input
+              type="email"
+              name="email"
+              placeholder="Email Address"
+              value="{{ email }}"
+            />
+          </div>
+          <div class="form-input">
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              value="{{ password }}"
+            />
+          </div>
+          <div class="form-input pt-30">
+            <input type="submit" name="submit" value="Registration" />
+          </div>
+          <!-- Forget Password -->
+          <p style="color: white">
+            Already have an account?
+            <a href="{% url 'home:login' %}" class="registration">Login Here</a>
+          </p>
         </div>
-    </form>
-    <!-- /end login form -->
-</main>
-
+      </form>
+      <!-- /end login form -->
+    </main>
 
     <script src="{% static 'home/' %}assets/js/vendor/modernizr-3.5.0.min.js"></script>
     <!-- Jquery, Popper, Bootstrap -->
@@ -128,7 +182,7 @@
     <script src="{% static 'home/' %}assets/js/jquery.sticky.js"></script>
     <!-- Progress -->
     <script src="{% static 'home/' %}assets/js/jquery.barfiller.js"></script>
-    
+
     <!-- counter , waypoint,Hover Direction -->
     <script src="{% static 'home/' %}assets/js/jquery.counterup.min.js"></script>
     <script src="{% static 'home/' %}assets/js/waypoints.min.js"></script>
@@ -141,10 +195,9 @@
     <script src="{% static 'home/' %}assets/js/jquery.validate.min.js"></script>
     <script src="{% static 'home/' %}assets/js/mail-script.js"></script>
     <script src="{% static 'home/' %}assets/js/jquery.ajaxchimp.min.js"></script>
-    
-    <!-- Jquery Plugins, main Jquery -->	
+
+    <!-- Jquery Plugins, main Jquery -->
     <script src="{% static 'home/' %}assets/js/plugins.js"></script>
     <script src="{% static 'home/' %}assets/js/main.js"></script>
-    
-    </body>
+  </body>
 </html>

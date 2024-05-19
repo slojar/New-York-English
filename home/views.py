@@ -6,12 +6,12 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 
 from home.forms import LoginForm, RegistrationForm
-from home.models import UserProfile
+from home.models import *
 
 
 def home_view(request):
     context = {
-        # 'plan': Plan.objects.all().order_by('min_amount'),
+        'plans': Lesson.objects.all().order_by('price')[:3],
         # 'recent_transactions': Transaction.objects.filter(status='success').order_by('-id')[:6],
         # 'users': User.objects.all().count(),
         # 'trans': Transaction.objects.all().count(),
@@ -30,7 +30,10 @@ def contact_view(request):
 
 
 def courses_view(request):
-    context = {}
+    courses = Lesson.objects.all().order_by("price")
+    context = {
+        'courses': courses,
+    }
     return render(request, 'home/courses.html', context)
 
 
@@ -90,6 +93,28 @@ def userlogout(request):
 
 @login_required(login_url='/login')
 def dashboard_view(request):
+    profile = UserProfile.objects.filter(user=request.user).last()
+    # transactions = Transaction.objects.filter(user=request.user).order_by('-id')
+    # current_profit = Investment.objects.filter(user=request.user, status='active').aggregate(Sum('current_profit'))['current_profit__sum'] or 0
+    # all_deposit = Investment.objects.filter(user=request.user, status='active').aggregate(Sum('amount_invested'))['amount_invested__sum'] or 0
+
+    # update user's balance
+    # profile.total_earning = current_profit
+    # profile.total_deposit = all_deposit
+    # profile.total_balance = float(current_profit) + float(all_deposit)
+    # profile.save()
+
+    context = {
+        'profile': profile,
+        'completed': UserLesson.objects.filter(user=request.user, status="completed"),
+        'running': UserLesson.objects.filter(user=request.user, status="running"),
+        'transactions': Transaction.objects.filter(user=request.user).order_by("-id")[:20]
+    }
+    return render(request, 'home/dashboard.html', context)
+
+
+@login_required(login_url='/login')
+def lesson_view(request):
     profile = UserProfile.objects.get(user=request.user)
     # transactions = Transaction.objects.filter(user=request.user).order_by('-id')
     # current_profit = Investment.objects.filter(user=request.user, status='active').aggregate(Sum('current_profit'))['current_profit__sum'] or 0
@@ -105,5 +130,15 @@ def dashboard_view(request):
         'profile': profile,
         'transactions': "transactions",
     }
-    return render(request, 'home/dashboard.html', context)
+    return render(request, 'home/lesson.html', context)
+
+
+def lesson_detail_view(request):
+    profile = UserProfile.objects.get(user=request.user)
+
+    context = {
+        'profile': profile,
+        'transactions': "transactions",
+    }
+    return render(request, 'home/lesson-detail.html', context)
 
