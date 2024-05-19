@@ -77,10 +77,8 @@
 
     <!-- Register -->
 
-    <main
-      class="login-body"
-      data-vide-bg="{% static 'home/' %}assets/img/login-bg.mp4"
-    >
+{#    <main class="login-body" data-vide-bg="{% static 'home/' %}assets/img/login-bg.mp4">#}
+    <main class="login-body" style="background-color: rgba(255,148,30,0.18)">
       <!-- Login Admin -->
       <form class="form-default" method="POST" action="/register">
         {% csrf_token %}

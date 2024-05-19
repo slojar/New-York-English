@@ -10,6 +10,10 @@ TRANSACTION_STATUS_CHOICES = (
     ("pending", "Pending"), ("success", "Success"), ("failed", "Failed")
 )
 
+VOCABULARY_STATUS_CHOICES = (
+    ("completed", "Completed"), ("not_completed", "Not Completed")
+)
+
 
 class UserProfile(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -44,11 +48,20 @@ class Vocabulary(models.Model):
     title = models.CharField(max_length=50)
     lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE)
     text = models.TextField()
+    image = models.ImageField(upload_to="vocabulary-images", blank=True, null=True)
     audio_file = models.FileField(blank=True, null=True, upload_to="audio-files")
     video_url = models.TextField(blank=True, null=True)
 
     def __str__(self):
         return self.title
+
+
+class UserVocabulary(models.Model):
+    vocabulary = models.ForeignKey(Vocabulary, on_delete=models.CASCADE)
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default="running")
+
+    def __str__(self):
+        return self.vocabulary.title
 
 
 class Transaction(models.Model):

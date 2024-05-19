@@ -114,7 +114,7 @@ def dashboard_view(request):
 
 
 @login_required(login_url='/login')
-def lesson_view(request):
+def lesson_view(request, pk):
     profile = UserProfile.objects.get(user=request.user)
     # transactions = Transaction.objects.filter(user=request.user).order_by('-id')
     # current_profit = Investment.objects.filter(user=request.user, status='active').aggregate(Sum('current_profit'))['current_profit__sum'] or 0
@@ -128,7 +128,7 @@ def lesson_view(request):
 
     context = {
         'profile': profile,
-        'transactions': "transactions",
+        'lesson': UserLesson.objects.get(id=pk),
     }
     return render(request, 'home/lesson.html', context)
 

@@ -45,6 +45,7 @@
           {% endif %}
             {% for course in completed %}
             <div class="col-6 col-md-3 my-3">
+            <a href="{% url 'home:lesson' course.id %}">
               <div
                 class="border-0 each_col py-5 bg-info d-flex align-items-center  justify-content-center flex-column overflow-hidden"
               >
@@ -57,6 +58,7 @@
                 <div class="text_col">{{ course.lesson.name }}</div>
                 <div class="text_col_price">${{ course.lesson.price }}</div>
               </div>
+                </a>
             </div>
               {% endfor %}
           </div>
@@ -74,6 +76,7 @@
 
               {% for runcourse in running %}
             <div class="col-6 col-md-3 my-3">
+                <a href="{% url 'home:lesson' runcourse.id %}">
               <div class="border-0 each_col py-5 bg-primary d-flex align-items-center justify-content-center flex-column overflow-hidden">
                 <div class="rounded-circle bg-white d-flex align-items-center justify-content-center" style="width: 50px; height: 50px">
                   <i class="ri-presentation-line"></i>
@@ -81,6 +84,7 @@
                 <div class="text_col">{{ runcourse.lesson.name}}</div>
                 <div class="text_col_price"> Progress: {{ runcourse.progress }}%</div>
               </div>
+                </a>
             </div>
               {% endfor %}
           </div>
@@ -115,12 +119,18 @@
                 <tbody>
                 {% for trans in transactions %}
                   <tr style="font-size: 12px">
-                    <td>{{ trans.created_on}}</td>
+                    <td>{{ trans.created_on | date }}</td>
                     <td>{{ trans.transaction_id}}</td>
                     <td>{{ trans.plan.name | capfirst }}</td>
                     <td>{{ trans.detail }}</td>
                     <td>${{ trans.plan.price }}</td>
-                    <td>{{ trans.status }}</td>
+                      {% if trans.status == "success" %}
+                    <td style="background-color: green; border-radius: 20px; text-align: center; color: white; "><strong>{{ trans.status }}</strong></td>
+                  {% elif trans.status == "pending" %}
+                  <td style="background-color: yellow; border-radius: 20px; text-align: center; color: white; "><strong>{{ trans.status }}</strong></td>
+                  {% else %}
+                      <td style="background-color: red; border-radius: 20px; text-align: center; color: white; "><strong>{{ trans.status }}</strong></td>
+                  {% endif %}
                   </tr>
                 {% endfor %}
                 </tbody>
@@ -130,7 +140,7 @@
         </div>
       </div>
       <div class="col-12 col-md-4 my-0 my-md-3">
-        <div class="bg-secondary w-full h-100 p-3" style="border-radius: 10px">
+        <div class="w-full h-100 p-3" style="border-radius: 10px; background-color: rgba(255,148,30,0.18)">
           <div>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque,
             veniam.
