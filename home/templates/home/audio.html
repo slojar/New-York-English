@@ -1,0 +1,70 @@
+{% extends 'home/base.html' %} {% load static %} {% block body %}
+<main>
+  <!--? slider Area Start-->
+  <section class="slider-area slider-area2">
+    <div class="slider-active">
+      <!-- Single Slider -->
+      <div class="single-slider slider-height2">
+        <div class="container">
+          <div class="row">
+            <div class="col-xl-8 col-lg-11 col-md-12">
+              <div class="hero__caption hero__caption2">
+                <h1 data-animation="bounceIn" data-delay="0.2s">Record Audio</h1>
+                <!-- breadcrumb Start-->
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                      <a href="{% url 'home:homepage' %}">Home</a>
+                    </li>
+                    <li class="breadcrumb-item"><a href="#">Record</a></li>
+                  </ol>
+                </nav>
+                <!-- breadcrumb End -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div style="margin-top: 10px; margin-bottom: 10px"></div>
+  <!-- Courses area start -->
+  <div class="container my-5 my-5">
+    <div class="mx-auto lesson_size">
+      <div class="my-5">
+    <h1>Voice Recording</h1>
+    <form id="audioForm" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-success" type="submit" id="uploadButton" disabled>Upload</button>
+    </form>
+          <br>
+    <button class="btn btn-success" id="recordButton">Record</button>
+    <button class="btn btn-success" id="stopButton" disabled>Stop</button>
+    <div id="status"></div>
+
+      </div>
+  </div>
+
+  <style>
+    .custom_flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .lesson_size {
+      width: 50%;
+    }
+
+    @media only screen and (max-width: 700px) {
+      .lesson_size {
+        width: 100%;
+      }
+    }
+  </style>
+  <!-- account end -->
+</main>
+
+{% endblock %}

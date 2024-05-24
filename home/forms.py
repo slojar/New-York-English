@@ -5,6 +5,10 @@ from django.contrib.auth.models import User
 from home.models import *
 
 
+class AudioForm(forms.Form):
+    audio = forms.FileField()
+
+
 class LoginForm(forms.Form):
     email = forms.EmailField(required=True)
     password = forms.CharField(widget=forms.PasswordInput, required=True)

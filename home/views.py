@@ -1,11 +1,16 @@
+import os
+import uuid
+
+from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.urls import reverse
 
-from home.forms import LoginForm, RegistrationForm
+from home.forms import LoginForm, RegistrationForm, AudioForm
 from home.models import *
 
 
@@ -150,4 +155,26 @@ def lesson_detail_view(request, pk):
         'volca': UserVocabulary.objects.get(id=pk, user=request.user),
     }
     return render(request, 'home/lesson-detail.html', context)
+
+
+def upload_audio(request):
+    if request.method == 'POST':
+        form = AudioForm(request.POST, request.FILES)
+        if form.is_valid():
+            audio_file = form.cleaned_data['audio']
+            random_filename = f"{uuid.uuid4()}.wav"
+            audio_path = os.path.join(settings.MEDIA_ROOT, 'audio', random_filename)
+
+            # Ensure the media directory exists
+            os.makedirs(os.path.dirname(audio_path), exist_ok=True)
+
+            with open(audio_path, 'wb') as f:
+                for chunk in audio_file.chunks():
+                    f.write(chunk)
+
+            return HttpResponseRedirect('/')
+    else:
+        form = AudioForm()
+    return render(request, 'home/audio.html', {'form': form})
+
 
