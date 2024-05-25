@@ -1,25 +1,50 @@
 import os
 import uuid
+import requests
+import environ
 
 from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import User
-from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.urls import reverse
 
 from home.forms import LoginForm, RegistrationForm, AudioForm
 from home.models import *
 
+env = environ.Env()
+
+X_RapidAPI_Key = env('X_RapidAPI_Key', None),
+X_RapidAPI_Host = env('X_RapidAPI_Host', None),
+RapidAPIUrl = env('RapidAPIUrl', None),
+
+
+def transcribe_audio(file_path, file_name):
+    url = RapidAPIUrl
+    payload = {}
+    files = [('file', (f'{file_name}', open(f'{file_path}', 'rb'), 'audio/wav'))]
+    headers = {
+        'X-RapidAPI-Key': X_RapidAPI_Key,
+        'X-RapidAPI-Host': X_RapidAPI_Host
+    }
+
+    response = requests.request("POST", url, headers=headers, data=payload, files=files)
+    result = ""
+    if response.status_code == 200:
+        result = response["text"]
+
+    # response = {
+    #     "success": True,
+    #     "text": "What is your name"
+    # }
+    # result = response["text"]
+    return result
+
 
 def home_view(request):
     context = {
         'plans': Lesson.objects.all().order_by('price')[:3],
-        # 'recent_transactions': Transaction.objects.filter(status='success').order_by('-id')[:6],
-        # 'users': User.objects.all().count(),
-        # 'trans': Transaction.objects.all().count(),
     }
     return render(request, 'home/index.html', context)
 
@@ -66,9 +91,6 @@ def login_view(request):
 
 
 def register_view(request):
-    # if request.user.is_authenticated:
-    #     return redirect('/dashboard')
-
     form = RegistrationForm()
 
     if request.method == 'POST':
@@ -99,15 +121,6 @@ def userlogout(request):
 @login_required(login_url='/login')
 def dashboard_view(request):
     profile = UserProfile.objects.filter(user=request.user).last()
-    # transactions = Transaction.objects.filter(user=request.user).order_by('-id')
-    # current_profit = Investment.objects.filter(user=request.user, status='active').aggregate(Sum('current_profit'))['current_profit__sum'] or 0
-    # all_deposit = Investment.objects.filter(user=request.user, status='active').aggregate(Sum('amount_invested'))['amount_invested__sum'] or 0
-
-    # update user's balance
-    # profile.total_earning = current_profit
-    # profile.total_deposit = all_deposit
-    # profile.total_balance = float(current_profit) + float(all_deposit)
-    # profile.save()
 
     context = {
         'profile': profile,
@@ -121,15 +134,6 @@ def dashboard_view(request):
 @login_required(login_url='/login')
 def lesson_view(request, pk):
     profile = UserProfile.objects.get(user=request.user)
-    # transactions = Transaction.objects.filter(user=request.user).order_by('-id')
-    # current_profit = Investment.objects.filter(user=request.user, status='active').aggregate(Sum('current_profit'))['current_profit__sum'] or 0
-    # all_deposit = Investment.objects.filter(user=request.user, status='active').aggregate(Sum('amount_invested'))['amount_invested__sum'] or 0
-
-    # update user's balance
-    # profile.total_earning = current_profit
-    # profile.total_deposit = all_deposit
-    # profile.total_balance = float(current_profit) + float(all_deposit)
-    # profile.save()
     lesson = UserLesson.objects.get(id=pk)
     user_vocabularies = [{
         "id": item.id,
@@ -157,7 +161,10 @@ def lesson_detail_view(request, pk):
     return render(request, 'home/lesson-detail.html', context)
 
 
-def upload_audio(request):
+def upload_audio(request, pk):
+    # GET Volcabulary
+    volca = UserVocabulary.objects.get(id=pk)
+    text = volca.vocabulary.text
     if request.method == 'POST':
         form = AudioForm(request.POST, request.FILES)
         if form.is_valid():
@@ -172,7 +179,16 @@ def upload_audio(request):
                 for chunk in audio_file.chunks():
                     f.write(chunk)
 
-            return HttpResponseRedirect('/')
+                response = transcribe_audio(file_path=audio_path, file_name=random_filename)
+                if str(response).lower() != str(text).lower():
+                    messages.error(request, f'Words mismatch!!!')
+                    messages.error(request, f'Course Text: {text}')
+                    messages.error(request, f'Your Response: {response}')
+                    return redirect(reverse('home:upload_audio', args=[pk]))
+                # Update UserVocabulary to complete
+                volca.status = "completed"
+                volca.save()
+            return redirect(reverse('home:lesson-detail', args=[pk]))
     else:
         form = AudioForm()
     return render(request, 'home/audio.html', {'form': form})

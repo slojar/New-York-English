@@ -17,7 +17,7 @@ urlpatterns = [
     path('lesson-detail/<int:pk>', lesson_detail_view, name='lesson-detail'),
     path('register', register_view, name='register'),
     path('logout', userlogout, name='logout'),
-    path('upload_audio/', upload_audio, name='upload_audio'),
+    path('upload_audio/<int:pk>', upload_audio, name='upload_audio'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

@@ -32,6 +32,9 @@
   <div class="container my-5 my-5">
     <div>
       <div class="mx-auto text-center">
+          <div>
+              <h2>{{ volca.status | upper }}</h2>
+          </div>
         <div style="font-weight: bold; font-size: large">{{ volca.vocabulary.title }}</div>
 <br/>
         <div class="bg-primary mx-auto video_size">
@@ -50,7 +53,7 @@
           <br/>
           <div>
               <br/>
-              <a class="btn btn-success" href="{% url 'home:upload_audio' %}">Record Audio</a>
+              <a class="btn btn-success" href="{% url 'home:upload_audio' volca.id %}">Record Audio</a>
 
           </div>
       </div>

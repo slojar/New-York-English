@@ -31,6 +31,31 @@
   <!-- Courses area start -->
   <div class="container my-5 my-5">
     <div class="mx-auto lesson_size">
+        <div>
+                           <!-- Messages and Notices -->
+               {% if form.errors %}
+                  {% for field in form %}
+                     {% for err in field.errors  %}
+                        <div style="color: red; font-weight: bold; text-align: center;">{{err}}</div>
+                     {% endfor %}
+                  {% endfor %}
+               {% endif %}
+
+               {% if messages %}
+                  {% for msg in messages %}
+
+                     {% if msg.tags == 'success'  %}
+                        <div style="color: green; font-weight: bold; text-align: center;">{{msg}}</div>
+                     {% endif %}
+
+                     {% if msg.tags == 'error'  %}
+                        <div style="color: red; font-weight: bold; text-align: center;">{{msg}}</div>
+                     {% endif %}
+
+                  {% endfor %}
+               {% endif %}
+               <!-- End Messages and Notices -->
+        </div>
       <div class="my-5">
     <h1>Voice Recording</h1>
     <form id="audioForm" method="post" enctype="multipart/form-data">
