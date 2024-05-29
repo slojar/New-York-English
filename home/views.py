@@ -1,45 +1,19 @@
 import os
 import uuid
-import requests
-import environ
-
 from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.urls import reverse
+from django.shortcuts import HttpResponseRedirect
 
 from home.forms import LoginForm, RegistrationForm, AudioForm
 from home.models import *
+from home.stripe_api import StripeAPI
+from home.utils import complete_payment, transcribe_audio
 
-env = environ.Env()
-
-X_RapidAPI_Key = env('X_RapidAPI_Key', None),
-X_RapidAPI_Host = env('X_RapidAPI_Host', None),
-RapidAPIUrl = env('RapidAPIUrl', None),
-
-
-def transcribe_audio(file_path, file_name):
-    url = RapidAPIUrl
-    payload = {}
-    files = [('file', (f'{file_name}', open(f'{file_path}', 'rb'), 'audio/wav'))]
-    headers = {
-        'X-RapidAPI-Key': X_RapidAPI_Key,
-        'X-RapidAPI-Host': X_RapidAPI_Host
-    }
-
-    response = requests.request("POST", url, headers=headers, data=payload, files=files)
-    result = ""
-    if response.status_code == 200:
-        result = response["text"]
-
-    # response = {
-    #     "success": True,
-    #     "text": "What is your name"
-    # }
-    # result = response["text"]
-    return result
+baseUrl = settings.BASE_URL
 
 
 def home_view(request):
@@ -101,11 +75,62 @@ def register_view(request):
                 messages.error(request, 'Email address already registered')
                 return redirect(reverse('home:register'))
 
-            user = form.save()
-            # Thread(target=send_welcome_email_to_user, args=[user]).start()
-            messages.success(request, 'Account registered successfully')
-            print(messages)
-            return redirect('/login')
+            user_form = form.save()
+            # CREATE USER PROFILE
+            email = form.cleaned_data.get('email')
+            password = form.cleaned_data.get('password')
+            phone = form.cleaned_data.get('phone')
+            user = authenticate(request, username=email, password=password)
+            user_profile, created = UserProfile.objects.get_or_create(user=user)
+            user_profile.phone_number = phone
+            user_profile.save()
+            amount = float(1.0)
+            callback_url = f"{baseUrl}/payment-verify"
+            stripe_customer_id = ""
+            if not user_profile.stripe_customer_id:
+                customer = StripeAPI.create_customer(
+                    name=user.get_full_name(),
+                    email=user.email,
+                    phone=phone
+                )
+                user_profile.stripe_customer_id = customer.get('id')
+                user_profile.save()
+                stripe_customer_id = customer.get('id')
+            description = "Course Payment"
+
+            while True:
+                # payment_reference = payment_link = None
+                success, response = StripeAPI.create_payment_session(
+                    name=user.get_full_name(),
+                    amount=amount,
+                    return_url=callback_url,
+                    customer_id=stripe_customer_id,
+                )
+                if not success:
+                    # raise InvalidRequestException({'detail': response})
+                    # DELETE USER
+                    User.objects.get(email=email).delete()
+                    messages.success(request, 'Error generating payment link, please try later')
+                    return redirect('/')
+                if not response.get('url'):
+                    # DELETE USER
+                    User.objects.get(email=email).delete()
+                    messages.success(request, 'Error generating payment link, please try later')
+                    return redirect('/')
+
+                payment_reference = response.get('payment_intent')
+                if not payment_reference:
+                    payment_reference = response.get('id')
+                payment_link = response.get('url')
+                break
+
+            # Create Transaction
+            Transaction.objects.create(user=user, amount=amount, detail=description, transaction_id=payment_reference)
+
+            return HttpResponseRedirect(payment_link)
+
+            # messages.success(request, 'Account registered successfully')
+            # return redirect('/login')
 
     context = {
         'form': form,
@@ -126,7 +151,8 @@ def dashboard_view(request):
         'profile': profile,
         'completed': UserLesson.objects.filter(user=request.user, status="completed"),
         'running': UserLesson.objects.filter(user=request.user, status="running"),
-        'transactions': Transaction.objects.filter(user=request.user).order_by("-id")[:20]
+        'transactions': Transaction.objects.filter(user=request.user).order_by("-id")[:20],
+        'total_transaction': Transaction.objects.filter(user=request.user),
     }
     return render(request, 'home/dashboard.html', context)
 
@@ -192,5 +218,15 @@ def upload_audio(request, pk):
     else:
         form = AudioForm()
     return render(request, 'home/audio.html', {'form': form})
+
+
+def verify_payment(request):
+    reference = request.GET.get("reference")
+    success, response = complete_payment(reference)
+    if success is False:
+        return redirect(reverse('home:homepage'))
+    #     return Response({"detail": response}, status=status.HTTP_400_BAD_REQUEST)
+    return redirect(reverse('home:dashboard',))
+
 
 

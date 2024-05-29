@@ -23,7 +23,7 @@ class UserVocabularyModelAdmin(admin.ModelAdmin):
 
 
 class TransactionModelAdmin(admin.ModelAdmin):
-    list_display = ['user', 'plan', 'status', 'transaction_id', 'created_on']
+    list_display = ['user', 'status', 'transaction_id', 'created_on']
     list_filter = ['status']
 
 

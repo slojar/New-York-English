@@ -18,6 +18,7 @@ urlpatterns = [
     path('register', register_view, name='register'),
     path('logout', userlogout, name='logout'),
     path('upload_audio/<int:pk>', upload_audio, name='upload_audio'),
+    path('payment-verify', verify_payment, name='verify_payment'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

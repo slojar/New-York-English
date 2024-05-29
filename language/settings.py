@@ -91,6 +91,8 @@ DATABASES = {
     }
 }
 
+BASE_URL = env('BASE_URL', None)
+STRIPE_API_KEY = env('STRIPE_API_KEY', None)
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators

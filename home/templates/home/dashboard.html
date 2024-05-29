@@ -107,7 +107,7 @@
                   <tr>
                     <th scope="col">Date</th>
                     <th scope="col">TransactionID</th>
-                    <th scope="col">Course Name</th>
+{#                    <th scope="col">Course Name</th>#}
                     <th scope="col">Description</th>
                     <th scope="col">Amount</th>
                     <th scope="col">Status</th>
@@ -121,9 +121,9 @@
                   <tr style="font-size: 12px">
                     <td>{{ trans.created_on | date }}</td>
                     <td>{{ trans.transaction_id}}</td>
-                    <td>{{ trans.plan.name | capfirst }}</td>
+{#                    <td>{{ trans.plan.name | capfirst }}</td>#}
                     <td>{{ trans.detail }}</td>
-                    <td>${{ trans.plan.price }}</td>
+                    <td>${{ trans.amount }}</td>
                       {% if trans.status == "success" %}
                     <td style="background-color: green; border-radius: 20px; text-align: center; color: white; "><strong>{{ trans.status }}</strong></td>
                   {% elif trans.status == "pending" %}
@@ -141,9 +141,18 @@
       </div>
       <div class="col-12 col-md-4 my-0 my-md-3">
         <div class="w-full h-100 p-3" style="border-radius: 10px; background-color: rgba(255,148,30,0.18)">
-          <div>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque,
-            veniam.
+          <div style="margin-left: 2%">
+              <br>
+              <div>
+                  Hello! <strong>{{ request.user.get_full_name }}</strong>
+              </div>
+              <br>
+              <div>
+                  <strong><em>Completed Lessons:</em> <span>{{ completed.count }}</span></strong><br>
+                  <strong><em>Uncompleted Lessons:</em> <span>{{ running.count }}</span></strong><br>
+                  <strong><em>Total Transactions:</em> <span>{{ total_transaction.count }}</span></strong>
+              </div>
+
           </div>
         </div>
       </div>

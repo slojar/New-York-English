@@ -16,9 +16,12 @@ VOCABULARY_STATUS_CHOICES = (
 
 
 class UserProfile(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     dob = models.DateTimeField(blank=True, null=True)
     level = models.CharField(blank=True, null=True)
+    phone_number = models.CharField(max_length=30, blank=True, null=True)
+    stripe_customer_id = models.CharField(max_length=400, blank=True, null=True)
+    subscribed = models.BooleanField(default=False)
 
     def __str__(self):
         return self.user.username
@@ -67,7 +70,8 @@ class UserVocabulary(models.Model):
 
 class Transaction(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    plan = models.ForeignKey(Lesson, on_delete=models.SET_NULL, blank=True, null=True)
+    # plan = models.ForeignKey(Lesson, on_delete=models.SET_NULL, blank=True, null=True)
+    amount = models.DecimalField(default=0, decimal_places=2, max_digits=20)
     status = models.CharField(max_length=50, choices=TRANSACTION_STATUS_CHOICES, default="pending")
     detail = models.CharField(max_length=200, blank=True, null=True)
     transaction_id = models.CharField(max_length=200, blank=True, null=True)

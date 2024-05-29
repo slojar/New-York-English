@@ -163,30 +163,33 @@
                     </div>
                 </div>
                 <div class="courses-actives">
-                    {% for plan in plans %}
                     <!-- Single -->
                     <div class="properties pb-20">
                         <div class="properties__card">
                             <div class="properties__img overlay1">
-                                <a href="#"><img src="{{ plan.image.url }}" alt=""></a>
+                                <a href="#"><img src="" alt=""></a>
                             </div>
                             <div class="properties__caption">
-                                <h3><a href="#">{{ plan.name}}</a></h3>
-                                <p>{{ plan.description | truncatewords:80 }}</p>
+                                <h3 style="text-align: center"><a href="#">Monthly Subcription</a></h3>
+                                <p>Sets yourself up for success by introducing yourself to new skills at the perfect pace and giving yourself opportunities to practice key words and phrases in multiple contexts.
+                                </p>
                                 <div class="properties__footer d-flex justify-content-between align-items-center">
                                     <div class="restaurant-name">
                                     </div>
                                     <div class="price">
-                                        <span>${{ plan.price }}</span>
+                                        <span>$1/month</span>
                                     </div>
                                 </div>
-                                <a href="#" class="border-btn border-btn2">Purchase Plan</a>
+                                {% if request.user.is_authenticated %}
+                                <a href="{% url 'home:dashboard' %}" class="border-btn border-btn2">Subscribe</a>
+                                {% else %}
+                                <a href="{% url 'home:register' %}" class="border-btn border-btn2">Subscribe</a>
+                                {% endif %}
                             </div>
 
                         </div>
                     </div>
                     <!-- Single -->
-                    {% endfor %}
                 </div>
             </div>
         </div>
@@ -269,7 +272,8 @@
                                 toward your personal
                                 and professional goals
                             with us.</h2>
-                            <p>The automated process all your website tasks. Discover tools and techniques to engage effectively with vulnerable children and young people.</p>
+                            <p>Every lesson is scaffolded to improve your proficiency and includes listening, speaking, pronunciation, reading, grammar, vocabulary, and review skills. You start by learning a single word, then build up to phrases and finally full sentences and conversations.
+                            </p>
                             <a href="{% url 'home:register' %}" class="btn">Join now</a>
                         </div>
                     </div>
