@@ -21,7 +21,7 @@
 }
 
 .theme-bg {
-	background: #C86FFF
+	background: #2B44BF
 }
 
 .brand-bg {
@@ -41,30 +41,30 @@
 }
 
 .theme-color {
-	color: #C86FFF
+	color: #2B44BF
 }
 
 .boxed-btn {
 	background: #fff;
-	color: #C86FFF !important;
+	color: #2B44BF !important;
 	display: inline-block;
 	padding: 18px 44px;
 	font-family: "Josefin Sans", sans-serif;
 	font-size: 14px;
 	font-weight: 400;
 	border: 0;
-	border: 1px solid #C86FFF;
+	border: 1px solid #2B44BF;
 	letter-spacing: 3px;
 	text-align: center;
-	color: #C86FFF;
+	color: #2B44BF;
 	text-transform: uppercase;
 	cursor: pointer
 }
 
 .boxed-btn:hover {
-	background: #C86FFF;
+	background: #2B44BF;
 	color: #fff !important;
-	border: 1px solid #C86FFF
+	border: 1px solid #2B44BF
 }
 
 .boxed-btn:focus {
@@ -485,7 +485,7 @@ hr {
 }
 
 .white-btn::before {
-	background: #C86FFF;
+	background: #2B44BF;
 	color: #fff !important
 }
 
@@ -566,7 +566,7 @@ hr {
 .border-btn i {
 	font-size: 16px;
 	margin-right: 10px;
-	color: #C86FFF;
+	color: #2B44BF;
 	-webkit-transition: .3s;
 	-moz-transition: .3s;
 	-o-transition: .3s;
@@ -637,7 +637,7 @@ hr {
 
 #scrollUp,
 #back-top {
-	background: #C86FFF;
+	background: #2B44BF;
 	height: 50px;
 	width: 50px;
 	right: 31px;
@@ -671,13 +671,13 @@ hr {
 }
 
 .all-btn {
-	color: #C86FFF;
+	color: #2B44BF;
 	text-decoration: underline;
 	font-size: 16px
 }
 
 .all-btn:hover {
-	color: #C86FFF;
+	color: #2B44BF;
 	text-decoration: underline;
 	letter-spacing: 1px
 }
@@ -2082,7 +2082,7 @@ hr {
 	position: relative;
 	border-style: solid;
 	border-width: 1px;
-	border-top-color: #C86FFF;
+	border-top-color: #2B44BF;
 	border-bottom-color: transparent;
 	border-left-color: transparent;
 	border-right-color: transparent;
@@ -2593,7 +2593,7 @@ hr {
 	font-size: 18px;
 	font-weight: 700;
 	margin-bottom: 22px;
-	color: #C86FFF;
+	color: #2B44BF;
 	text-transform: capitalize;
 	display: inline-block;
 	letter-spacing: 0.05em
@@ -2653,7 +2653,7 @@ hr {
 }
 
 .theme-bg {
-	background: #C86FFF
+	background: #2B44BF
 }
 
 .brand-bg {
@@ -2673,7 +2673,7 @@ hr {
 }
 
 .theme-color {
-	color: #C86FFF
+	color: #2B44BF
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -2856,7 +2856,7 @@ hr {
 }
 
 .main-header .main-menu ul ul.submenu>li>a:hover {
-	color: #C86FFF;
+	color: #2B44BF;
 	background: none;
 	padding-left: 13px !important
 }
@@ -2974,12 +2974,13 @@ hr {
 
 .mobile_menu .slicknav_menu .slicknav_nav {
 	margin-top: 9px !important;
-	background: #C86FFF
+	/*background: #2B44BF*/
+	background: #2B44BF
 }
 
 .mobile_menu .slicknav_menu .slicknav_nav a:hover {
 	background: transparent;
-	color: #C86FFF
+	color: #2B44BF
 }
 
 .mobile_menu .slicknav_menu .slicknav_nav a {
@@ -3027,7 +3028,7 @@ hr {
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: cover;
-	background-color: gold
+	background-color: #2B44BF
 
 }
 
@@ -4052,7 +4053,7 @@ hr {
 
 .team-active button.slick-arrow i {
 	font-size: 20px;
-	color: #C86FFF;
+	color: #2B44BF;
 	-webkit-transition: .2s;
 	-moz-transition: .2s;
 	-o-transition: .2s;
@@ -4136,7 +4137,7 @@ hr {
 }
 
 .courses-area .properties__caption P span {
-	color: #C86FFF;
+	color: #2B44BF;
 	font-size: 16px
 }
 
@@ -4205,7 +4206,7 @@ hr {
 
 .courses-actives button.slick-arrow i {
 	font-size: 20px;
-	color: #C86FFF;
+	color: #2B44BF;
 	-webkit-transition: .2s;
 	-moz-transition: .2s;
 	-o-transition: .2s;
@@ -4488,7 +4489,7 @@ hr {
 }
 
 .footer-area .info.error {
-	color: #C86FFF
+	color: #2B44BF
 }
 
 .footer-bottom-area .footer-border {
@@ -4504,7 +4505,7 @@ hr {
 }
 
 .footer-bottom-area .footer-copy-right p i {
-	color: #C86FFF
+	color: #2B44BF
 }
 
 .footer-social a {
@@ -4522,7 +4523,7 @@ hr {
 
 .footer-social a:hover {
 	color: #fff;
-	background: #C86FFF
+	background: #2B44BF
 }
 
 .footer-social a i {
@@ -4789,7 +4790,7 @@ hr {
 }
 
 .home-blog-area .home-blog-single .blog-img-cap .blog-cap h3 a:hover {
-	color: #C86FFF
+	color: #2B44BF
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -4823,7 +4824,7 @@ hr {
 }
 
 .home-blog-single:hover .blog-img-cap .blog-img .blog-date {
-	background: #C86FFF
+	background: #2B44BF
 }
 
 .home-blog-single:hover .blog-img-cap .blog-img img {
@@ -4848,7 +4849,7 @@ hr {
 
 .blog_area a:hover,
 .blog_area a :hover {
-	background: -webkit-linear-gradient(131deg, #C86FFF 0%, #C86FFF 99%);
+	background: -webkit-linear-gradient(131deg, #2B44BF 0%, #2B44BF 99%);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	text-decoration: none;
@@ -5347,7 +5348,7 @@ hr {
 	left: 10px;
 	display: block;
 	color: #fff;
-	background-color: #C86FFF;
+	background-color: #2B44BF;
 	padding: 8px 15px;
 	border-radius: 5px
 }
@@ -5429,7 +5430,7 @@ hr {
 }
 
 .blog_right_sidebar .search_widget .input-group button {
-	background: #C86FFF;
+	background: #2B44BF;
 	border-left: 0;
 	border: 1px solid #f0e9ff;
 	padding: 4px 15px;
@@ -5547,7 +5548,7 @@ hr {
 }
 
 .blog_right_sidebar .tag_cloud_widget ul li a:hover {
-	background: #C86FFF;
+	background: #2B44BF;
 	color: #fff !important;
 	-webkit-text-fill-color: #fff;
 	text-decoration: none;
