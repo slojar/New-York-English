@@ -21,7 +21,7 @@
 }
 
 .theme-bg {
-	background: #2B44BF
+	background: #233DFF
 }
 
 .brand-bg {
@@ -41,30 +41,30 @@
 }
 
 .theme-color {
-	color: #2B44BF
+	color: #233DFF
 }
 
 .boxed-btn {
 	background: #fff;
-	color: #2B44BF !important;
+	color: #233DFF !important;
 	display: inline-block;
 	padding: 18px 44px;
 	font-family: "Josefin Sans", sans-serif;
 	font-size: 14px;
 	font-weight: 400;
 	border: 0;
-	border: 1px solid #2B44BF;
+	border: 1px solid #233DFF;
 	letter-spacing: 3px;
 	text-align: center;
-	color: #2B44BF;
+	color: #233DFF;
 	text-transform: uppercase;
 	cursor: pointer
 }
 
 .boxed-btn:hover {
-	background: #2B44BF;
+	background: #233DFF;
 	color: #fff !important;
-	border: 1px solid #2B44BF
+	border: 1px solid #233DFF
 }
 
 .boxed-btn:focus {
@@ -485,7 +485,7 @@ hr {
 }
 
 .white-btn::before {
-	background: #2B44BF;
+	background: #233DFF;
 	color: #fff !important
 }
 
@@ -566,7 +566,7 @@ hr {
 .border-btn i {
 	font-size: 16px;
 	margin-right: 10px;
-	color: #2B44BF;
+	color: #233DFF;
 	-webkit-transition: .3s;
 	-moz-transition: .3s;
 	-o-transition: .3s;
@@ -637,7 +637,7 @@ hr {
 
 #scrollUp,
 #back-top {
-	background: #2B44BF;
+	background: #233DFF;
 	height: 50px;
 	width: 50px;
 	right: 31px;
@@ -671,13 +671,13 @@ hr {
 }
 
 .all-btn {
-	color: #2B44BF;
+	color: #233DFF;
 	text-decoration: underline;
 	font-size: 16px
 }
 
 .all-btn:hover {
-	color: #2B44BF;
+	color: #233DFF;
 	text-decoration: underline;
 	letter-spacing: 1px
 }
@@ -2082,7 +2082,7 @@ hr {
 	position: relative;
 	border-style: solid;
 	border-width: 1px;
-	border-top-color: #2B44BF;
+	border-top-color: #233DFF;
 	border-bottom-color: transparent;
 	border-left-color: transparent;
 	border-right-color: transparent;
@@ -2593,7 +2593,7 @@ hr {
 	font-size: 18px;
 	font-weight: 700;
 	margin-bottom: 22px;
-	color: #2B44BF;
+	color: #233DFF;
 	text-transform: capitalize;
 	display: inline-block;
 	letter-spacing: 0.05em
@@ -2653,7 +2653,7 @@ hr {
 }
 
 .theme-bg {
-	background: #2B44BF
+	background: #233DFF
 }
 
 .brand-bg {
@@ -2673,7 +2673,7 @@ hr {
 }
 
 .theme-color {
-	color: #2B44BF
+	color: #233DFF
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -2856,7 +2856,7 @@ hr {
 }
 
 .main-header .main-menu ul ul.submenu>li>a:hover {
-	color: #2B44BF;
+	color: #233DFF;
 	background: none;
 	padding-left: 13px !important
 }
@@ -2974,13 +2974,13 @@ hr {
 
 .mobile_menu .slicknav_menu .slicknav_nav {
 	margin-top: 9px !important;
-	/*background: #2B44BF*/
-	background: #2B44BF
+	/*background: #233DFF*/
+	background: #233DFF
 }
 
 .mobile_menu .slicknav_menu .slicknav_nav a:hover {
 	background: transparent;
-	color: #2B44BF
+	color: #233DFF
 }
 
 .mobile_menu .slicknav_menu .slicknav_nav a {
@@ -3028,7 +3028,7 @@ hr {
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: cover;
-	background-color: #2B44BF
+	background-color: #233DFF
 
 }
 
@@ -4053,7 +4053,7 @@ hr {
 
 .team-active button.slick-arrow i {
 	font-size: 20px;
-	color: #2B44BF;
+	color: #233DFF;
 	-webkit-transition: .2s;
 	-moz-transition: .2s;
 	-o-transition: .2s;
@@ -4137,7 +4137,7 @@ hr {
 }
 
 .courses-area .properties__caption P span {
-	color: #2B44BF;
+	color: #233DFF;
 	font-size: 16px
 }
 
@@ -4206,7 +4206,7 @@ hr {
 
 .courses-actives button.slick-arrow i {
 	font-size: 20px;
-	color: #2B44BF;
+	color: #233DFF;
 	-webkit-transition: .2s;
 	-moz-transition: .2s;
 	-o-transition: .2s;
@@ -4489,7 +4489,7 @@ hr {
 }
 
 .footer-area .info.error {
-	color: #2B44BF
+	color: #233DFF
 }
 
 .footer-bottom-area .footer-border {
@@ -4505,7 +4505,7 @@ hr {
 }
 
 .footer-bottom-area .footer-copy-right p i {
-	color: #2B44BF
+	color: #233DFF
 }
 
 .footer-social a {
@@ -4523,7 +4523,7 @@ hr {
 
 .footer-social a:hover {
 	color: #fff;
-	background: #2B44BF
+	background: #233DFF
 }
 
 .footer-social a i {
@@ -4790,7 +4790,7 @@ hr {
 }
 
 .home-blog-area .home-blog-single .blog-img-cap .blog-cap h3 a:hover {
-	color: #2B44BF
+	color: #233DFF
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -4824,7 +4824,7 @@ hr {
 }
 
 .home-blog-single:hover .blog-img-cap .blog-img .blog-date {
-	background: #2B44BF
+	background: #233DFF
 }
 
 .home-blog-single:hover .blog-img-cap .blog-img img {
@@ -4849,7 +4849,7 @@ hr {
 
 .blog_area a:hover,
 .blog_area a :hover {
-	background: -webkit-linear-gradient(131deg, #2B44BF 0%, #2B44BF 99%);
+	background: -webkit-linear-gradient(131deg, #233DFF 0%, #233DFF 99%);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	text-decoration: none;
@@ -5348,7 +5348,7 @@ hr {
 	left: 10px;
 	display: block;
 	color: #fff;
-	background-color: #2B44BF;
+	background-color: #233DFF;
 	padding: 8px 15px;
 	border-radius: 5px
 }
@@ -5430,7 +5430,7 @@ hr {
 }
 
 .blog_right_sidebar .search_widget .input-group button {
-	background: #2B44BF;
+	background: #233DFF;
 	border-left: 0;
 	border: 1px solid #f0e9ff;
 	padding: 4px 15px;
@@ -5548,7 +5548,7 @@ hr {
 }
 
 .blog_right_sidebar .tag_cloud_widget ul li a:hover {
-	background: #2B44BF;
+	background: #233DFF;
 	color: #fff !important;
 	-webkit-text-fill-color: #fff;
 	text-decoration: none;
@@ -6225,9 +6225,9 @@ hr {
 
 .about-area1 .support-wrapper .left-content1 .about-icon {
 	background: #eae2fe;
-	background: -moz-linear-gradient(top, #eae2fe 0%, #ffd700 1%, #ffd700 98%, #ec7dfe 99%, #f3f3fa 99%, #f4f5fa 100%);
-	background: -webkit-linear-gradient(top, #eae2fe 0%, #ffd700 1%, #ffd700 98%, #ec7dfe 99%, #f3f3fa 99%, #f4f5fa 100%);
-	background: linear-gradient(to bottom, #eae2fe 0%, #ffd700 1%, #ffd700 98%, #ec7dfe 99%, #f3f3fa 99%, #f4f5fa 100%);
+	background: -moz-linear-gradient(top, #eae2fe 0%, #233DFF 1%, #233DFF 98%, #ec7dfe 99%, #f3f3fa 99%, #f4f5fa 100%);
+	background: -webkit-linear-gradient(top, #eae2fe 0%, #233DFF 1%, #233DFF 98%, #ec7dfe 99%, #f3f3fa 99%, #f4f5fa 100%);
+	background: linear-gradient(to bottom, #eae2fe 0%, #233DFF 1%, #233DFF 98%, #ec7dfe 99%, #f3f3fa 99%, #f4f5fa 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eae2fe', endColorstr='#f4f5fa', GradientType=0)
 }
 
