@@ -67,8 +67,8 @@
                                     <div class="main-menu d-none d-lg-block">
                                         <nav>
                                             <ul id="navigation">
-                                                <li class="active" ><a href="{% url 'home:homepage' %}">Home</a></li>
-                                                <li><a href="{% url 'home:courses' %}">Subsription</a></li>
+                                                <li class="active" ><a style="color: white" href="{% url 'home:homepage' %}">Home</a></li>
+                                                <li><a style="color: white" href="{% url 'home:courses' %}">Subsription</a></li>
 {#                                                <li><a href="{% url 'home:about' %}">About</a></li>#}
 {#                                                <li><a href="#">Blog</a>#}
 {#                                                    <ul class="submenu">#}
@@ -77,14 +77,14 @@
 {#                                                        <li><a href="elements.html">Element</a></li>#}
 {#                                                    </ul>#}
 {#                                                </li>#}
-                                                <li><a href="{% url 'home:contact' %}">Contact</a></li>
+                                                <li><a style="color: white" href="{% url 'home:contact' %}">Contact</a></li>
                                             {% if user.is_authenticated %}
-                                                <li><a href="{% url 'home:dashboard' %}">Dashboard</a></li>
+                                                <li><a style="color: white" href="{% url 'home:dashboard' %}">Dashboard</a></li>
                                                 <li class="button-header"><a href="{% url 'home:logout' %}" class="btn btn3">Logout</a></li>
                                                 <!-- Button -->
                                                 {% else %}
-                                                    <li class="button-header margin-left "><a href="{% url 'home:register' %}" class="btn">Join</a></li>
-                                                    <li class="button-header"><a href="{% url 'home:login' %}" class="btn btn3">Log in</a></li>
+                                                    <li class="button-header margin-left "><a style="color: white" href="{% url 'home:register' %}" class="btn">Join</a></li>
+                                                    <li class="button-header"><a style="color: white" href="{% url 'home:login' %}" class="btn btn3">Log in</a></li>
                                                 {% endif %}
                                             </ul>
                                         </nav>

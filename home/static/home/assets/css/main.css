@@ -21,7 +21,7 @@
 }
 
 .theme-bg {
-	background: #c6a16e
+	background: #de954a
 }
 
 .brand-bg {
@@ -41,30 +41,30 @@
 }
 
 .theme-color {
-	color: #c6a16e
+	color: #de954a
 }
 
 .boxed-btn {
 	background: #fff;
-	color: #c6a16e !important;
+	color: #de954a !important;
 	display: inline-block;
 	padding: 18px 44px;
 	font-family: "Josefin Sans", sans-serif;
 	font-size: 14px;
 	font-weight: 400;
 	border: 0;
-	border: 1px solid #c6a16e;
+	border: 1px solid #de954a;
 	letter-spacing: 3px;
 	text-align: center;
-	color: #c6a16e;
+	color: #de954a;
 	text-transform: uppercase;
 	cursor: pointer
 }
 
 .boxed-btn:hover {
-	background: #c6a16e;
+	background: #de954a;
 	color: #fff !important;
-	border: 1px solid #c6a16e
+	border: 1px solid #de954a
 }
 
 .boxed-btn:focus {
@@ -394,7 +394,7 @@ hr {
 }
 
 .btn {
-	background: #c6a16e;
+	background: #de954a;
 	-moz-user-select: none;
 	text-transform: uppercase;
 	color: #fff;
@@ -452,8 +452,8 @@ hr {
 }
 
 .border-btn {
-	border: 2px solid #c6a16e;
-	color: #c6a16e;
+	border: 2px solid #de954a;
+	color: #de954a;
 	font: "Josefin Sans", sans-serif;
 	background: none;
 	-moz-user-select: none;
@@ -482,7 +482,7 @@ hr {
 	top: 0;
 	width: 100%;
 	height: 100%;
-	background: #c6a16e;
+	background: #de954a;
 	z-index: -1;
 	transition: transform 0.5s;
 	transition-timing-function: ease;
@@ -498,7 +498,7 @@ hr {
 }
 
 .send-btn {
-	background: #c6a16e;
+	background: #de954a;
 	color: #fff;
 	font-size: 14px;
 	width: 100%;
@@ -521,7 +521,7 @@ hr {
 	width: 100%;
 	height: 100%;
 	background: #e6373d;
-	color: #c6a16e;
+	color: #de954a;
 	z-index: -1;
 	transition: transform 0.5s;
 	transition-timing-function: ease;
@@ -541,7 +541,7 @@ hr {
 }
 
 #scrollUp {
-	background: #c6a16e;
+	background: #de954a;
 	height: 50px;
 	width: 50px;
 	right: 31px;
@@ -1964,7 +1964,7 @@ hr {
 	position: relative;
 	border-style: solid;
 	border-width: 3px;
-	border-top-color: #c6a16e;
+	border-top-color: #de954a;
 	border-bottom-color: transparent;
 	border-left-color: transparent;
 	border-right-color: transparent;
@@ -2604,7 +2604,7 @@ hr {
 }
 
 .theme-bg {
-	background: #c6a16e
+	background: #de954a
 }
 
 .brand-bg {
@@ -2624,7 +2624,7 @@ hr {
 }
 
 .theme-color {
-	color: #c6a16e
+	color: #de954a
 }
 
 .header-area .header-top {
@@ -2697,7 +2697,7 @@ hr {
 
 .main-header .main-menu ul li:hover>a {
 	color: #fff;
-	background: #c6a16e
+	background: #de954a
 }
 
 .main-header .main-menu ul ul.submenu {
@@ -2729,7 +2729,7 @@ hr {
 }
 
 .main-header .main-menu ul ul.submenu>li>a:hover {
-	color: #c6a16e;
+	color: #de954a;
 	background: none
 }
 
@@ -2748,7 +2748,7 @@ hr {
 }
 
 .slicknav_menu .slicknav_icon-bar {
-	background-color: #c6a16e !important
+	background-color: #de954a !important
 }
 
 .header-sticky.sticky-bar.sticky .header-btn .get-btn {
@@ -2761,7 +2761,7 @@ hr {
 
 .slicknav_menu .slicknav_nav a:hover {
 	background: transparent;
-	color: #c6a16e
+	color: #de954a
 }
 
 .slicknav_menu {
@@ -3478,7 +3478,7 @@ hr {
 }
 
 .david-droga-area .single-david .david-captoin a:hover {
-	color: #c6a16e
+	color: #de954a
 }
 
 .david-droga-area .single-david .david-captoin a.d-btn {
@@ -3500,7 +3500,7 @@ hr {
 }
 
 .david-droga-area .single-david .david-captoin a:hover::before {
-	background: #c6a16e
+	background: #de954a
 }
 
 .david-img:hover .david-img img {
@@ -3510,7 +3510,7 @@ hr {
 .wantToWork-area {
 	position: relative;
 	z-index: 0;
-	background: #c6a16e;
+	background: #de954a;
 	overflow: hidden
 }
 
@@ -3685,7 +3685,7 @@ hr {
 	color: #fff;
 	opacity: 0;
 	visibility: hidden;
-	background: #c6a16e
+	background: #de954a
 }
 
 @media only screen and (min-width: 576px) and (max-width: 767px) {
@@ -3779,7 +3779,7 @@ hr {
 
 .blog-area .single-blog .blog-caption .blog-cap-top span {
 	color: #fff;
-	background: #c6a16e;
+	background: #de954a;
 	padding: 4px 13px;
 	text-transform: uppercase;
 	font-size: 14px;
@@ -3794,7 +3794,7 @@ hr {
 }
 
 .blog-area .single-blog .blog-caption .blog-cap-top ul li a {
-	color: #c6a16e;
+	color: #de954a;
 	font-size: 14px
 }
 
@@ -3813,7 +3813,7 @@ hr {
 }
 
 .blog-area .single-blog .blog-caption .blog-cap-mid p a:hover {
-	color: #c6a16e
+	color: #de954a
 }
 
 .blog-area .single-blog .blog-caption .blog-cap-bottom {
@@ -3835,7 +3835,7 @@ hr {
 }
 
 .footer-area .footer-social2 a:hover {
-	background: #c6a16e;
+	background: #de954a;
 	color: #7f7f7f;
 	border: 1px solid transparent
 }
@@ -3877,7 +3877,7 @@ hr {
 }
 
 .footer-area .footer-tittle ul li a:hover {
-	color: #c6a16e;
+	color: #de954a;
 	padding-left: 5px
 }
 
@@ -3904,12 +3904,12 @@ hr {
 	border: 0;
 	cursor: pointer;
 	padding: 13px 22px;
-	background: #c6a16e;
+	background: #de954a;
 	line-height: 1
 }
 
 .footer-area .info.error {
-	color: #c6a16e
+	color: #de954a
 }
 
 .footer-bg {
@@ -3930,11 +3930,11 @@ hr {
 }
 
 .footer-bottom-area .footer-copy-right p i {
-	color: #c6a16e
+	color: #de954a
 }
 
 .footer-bottom-area .footer-copy-right p a {
-	color: #c6a16e
+	color: #de954a
 }
 
 .footer-bottom-area .footer-copy-right p a:hover {
@@ -3965,7 +3965,7 @@ hr {
 }
 
 .footer-bottom-area .footer-social a i:hover {
-	color: #c6a16e
+	color: #de954a
 }
 
 .hero-caption span {
@@ -3983,7 +3983,7 @@ hr {
 	content: "";
 	width: 75px;
 	height: 3px;
-	background: #c6a16e;
+	background: #de954a;
 	left: 0;
 	top: 52%;
 	transform: translateY(-50%)
@@ -4007,7 +4007,7 @@ hr {
 
 .blog_area a:hover,
 .blog_area a :hover {
-	background: -webkit-linear-gradient(131deg, #c6a16e 0%, #c6a16e 99%);
+	background: -webkit-linear-gradient(131deg, #de954a 0%, #de954a 99%);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	text-decoration: none;
@@ -4454,7 +4454,7 @@ hr {
 }
 
 .blog_details a:hover {
-	color: #c6a16e
+	color: #de954a
 }
 
 .blog_details h2 {
@@ -4512,7 +4512,7 @@ hr {
 	left: 10px;
 	display: block;
 	color: #fff;
-	background-color: #c6a16e;
+	background-color: #de954a;
 	padding: 8px 15px;
 	border-radius: 5px
 }
@@ -4594,7 +4594,7 @@ hr {
 }
 
 .blog_right_sidebar .search_widget .input-group button {
-	background: #c6a16e;
+	background: #de954a;
 	border-left: 0;
 	border: 1px solid #f0e9ff;
 	padding: 4px 15px;
@@ -4712,7 +4712,7 @@ hr {
 }
 
 .blog_right_sidebar .tag_cloud_widget ul li a:hover {
-	background: #c6a16e;
+	background: #de954a;
 	color: #fff !important;
 	-webkit-text-fill-color: #fff;
 	text-decoration: none;
@@ -4923,7 +4923,7 @@ hr {
 }
 
 .single-post-area .blog-author a:hover {
-	color: #c6a16e
+	color: #de954a
 }
 
 .single-post-area .blog-author p {
