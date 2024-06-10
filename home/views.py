@@ -1,9 +1,11 @@
+import datetime
 import os
 import uuid
 from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.shortcuts import HttpResponseRedirect
@@ -11,7 +13,7 @@ from django.shortcuts import HttpResponseRedirect
 from home.forms import LoginForm, RegistrationForm, AudioForm
 from home.models import *
 from home.stripe_api import StripeAPI
-from home.utils import complete_payment, transcribe_audio
+from home.utils import complete_payment, transcribe_audio, payment_checkout
 
 baseUrl = settings.BASE_URL
 
@@ -53,6 +55,16 @@ def login_view(request):
             password = form.cleaned_data.get('password')
             user = authenticate(request, username=email, password=password)
             if user is not None:
+                # Check if user is subscribed
+                user_profile = UserProfile.objects.get(user=user)
+                if not user_profile.subscribed:
+                    # Redirect to stripe:
+                    success, url = payment_checkout(user_profile)
+                    if success:
+                        return HttpResponseRedirect(url)
+                    else:
+                        messages.error(request, 'Your subscription has expired')
+                        return redirect(reverse('home:login'))
                 login(request, user)
                 return redirect('/dashboard')
             else:
@@ -96,7 +108,7 @@ def register_view(request):
                 user_profile.stripe_customer_id = customer.get('id')
                 user_profile.save()
                 stripe_customer_id = customer.get('id')
-            description = "Course Payment"
+            description = f"Course Payment for {datetime.datetime.now().strftime('%B %Y')}"
 
             while True:
                 # payment_reference = payment_link = None
@@ -229,4 +241,11 @@ def verify_payment(request):
     return redirect(reverse('home:dashboard',))
 
 
+def reset_subscription_counter_job(request):
+    site_password = settings.RESET_SUBSCRIPTION_PASSWORD
+    password = request.GET.get("password")
+    if password != site_password:
+        return JsonResponse({"detail": "Incorrect Password"})
+    UserProfile.objects.all().update(subscribed=False)
+    return JsonResponse({"detail": "All users unsubscribed!!!"})
 

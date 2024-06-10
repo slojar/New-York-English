@@ -19,6 +19,7 @@ urlpatterns = [
     path('logout', userlogout, name='logout'),
     path('upload_audio/<int:pk>', upload_audio, name='upload_audio'),
     path('payment-verify', verify_payment, name='verify_payment'),
+    path('unsubscribed', reset_subscription_counter_job, name='reset_subscription'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

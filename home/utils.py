@@ -1,7 +1,11 @@
-import requests
+import datetime
 
+import requests
+from django.conf import settings
 from home.models import Transaction
 from home.stripe_api import StripeAPI
+
+baseUrl = settings.BASE_URL
 
 
 def transcribe_audio(file_path, file_name):
@@ -59,3 +63,46 @@ def complete_payment(ref_number):
         trans.status = "failed"
         trans.save()
         return False, ""
+
+
+def payment_checkout(user_profile):
+    success = False
+    amount = float(1.0)
+    callback_url = f"{baseUrl}/payment-verify"
+    stripe_customer_id = ""
+    if not user_profile.stripe_customer_id:
+        customer = StripeAPI.create_customer(
+            name=user_profile.user.get_full_name(),
+            email=user_profile.user.email,
+            phone=user_profile.phone_number
+        )
+        user_profile.stripe_customer_id = customer.get('id')
+        user_profile.save()
+        stripe_customer_id = customer.get('id')
+    description = f"Course Payment for {datetime.datetime.now().strftime('%B %Y')}"
+
+    while True:
+        # payment_reference = payment_link = None
+        succeeded, response = StripeAPI.create_payment_session(
+            name=user_profile.user.get_full_name(),
+            amount=amount,
+            return_url=callback_url,
+            # customer_id=stripe_customer_id,
+        )
+        if not succeeded:
+            pass
+        if not response.get('url'):
+            pass
+        payment_reference = response.get('payment_intent')
+        if not payment_reference:
+            payment_reference = response.get('id')
+        payment_link = response.get('url')
+        break
+
+    # Create Transaction
+    Transaction.objects.create(
+        user=user_profile.user, amount=amount, detail=description, transaction_id=payment_reference
+    )
+    success = True
+    return success, payment_link
+

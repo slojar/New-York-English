@@ -45,7 +45,7 @@ class StripeAPI:
                     }
                 ],
                 mode="payment",
-                success_url=return_url + '&reference={CHECKOUT_SESSION_ID}',
+                success_url=return_url + '?reference={CHECKOUT_SESSION_ID}',
                 cancel_url=f"{baseUrl}",
                 customer=customer_id,
             )

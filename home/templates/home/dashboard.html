@@ -120,14 +120,14 @@
                 {% for trans in transactions %}
                   <tr style="font-size: 12px">
                     <td>{{ trans.created_on | date }}</td>
-                    <td>{{ trans.transaction_id}}</td>
+                    <td>{{ trans.transaction_id | truncatechars:20 }}</td>
 {#                    <td>{{ trans.plan.name | capfirst }}</td>#}
                     <td>{{ trans.detail }}</td>
                     <td>${{ trans.amount }}</td>
                       {% if trans.status == "success" %}
                     <td style="background-color: green; border-radius: 20px; text-align: center; color: white; "><strong>{{ trans.status }}</strong></td>
                   {% elif trans.status == "pending" %}
-                  <td style="background-color: yellow; border-radius: 20px; text-align: center; color: white; "><strong>{{ trans.status }}</strong></td>
+                  <td style="background-color: yellow; border-radius: 20px; text-align: center; color: black; "><strong>{{ trans.status }}</strong></td>
                   {% else %}
                       <td style="background-color: red; border-radius: 20px; text-align: center; color: white; "><strong>{{ trans.status }}</strong></td>
                   {% endif %}
