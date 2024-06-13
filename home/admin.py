@@ -2,9 +2,14 @@ from django.contrib import admin
 from .models import *
 
 
+class VocabularyStackInlineAdmin(admin.StackedInline):
+    model = Vocabulary
+
+
 class LessonModelAdmin(admin.ModelAdmin):
     list_display = ['name', 'description', 'price']
     search_fields = ['name']
+    inlines = [VocabularyStackInlineAdmin]
 
 
 class UserLessionModelAdmin(admin.ModelAdmin):

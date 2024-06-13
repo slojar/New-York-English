@@ -65,6 +65,13 @@ def login_view(request):
                     else:
                         messages.error(request, 'Your subscription has expired')
                         return redirect(reverse('home:login'))
+                # Get all Lessons
+                lessons = Lesson.objects.all()
+                for lesson in lessons:
+                    UserLesson.objects.get_or_create(user=user, lesson=lesson)
+                    volca = Vocabulary.objects.filter(lesson=lesson)
+                    for vol in volca:
+                        UserVocabulary.objects.get_or_create(user=user, vocabulary=vol)
                 login(request, user)
                 return redirect('/dashboard')
             else:
