@@ -18,7 +18,7 @@ VOCABULARY_STATUS_CHOICES = (
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     dob = models.DateTimeField(blank=True, null=True)
-    level = models.CharField(blank=True, null=True)
+    level = models.CharField(max_length=100, blank=True, null=True)
     phone_number = models.CharField(max_length=30, blank=True, null=True)
     stripe_customer_id = models.CharField(max_length=400, blank=True, null=True)
     subscribed = models.BooleanField(default=False)
